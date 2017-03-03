@@ -48,7 +48,52 @@ no changes added to commit (use "git add" and/or "git commit -a")
 Let's commit and push those changes.
 
 ```
+$ git commit -a -m "Changes in hello.js and test" ; git push origin master
+[master 2e02726] Changes in hello.js and test
+ 3 files changed, 56 insertions(+), 6 deletions(-)
+Counting objects: 7, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 1.20 KiB | 0 bytes/s, done.
+Total 7 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas: 100% (6/6), completed with 6 local objects.
+To https://github.com/cvicens/rhmap-express-template.git
+   a2b32b2..2e02726  master -> master
+
 ```
+
+Now we should be able to see that a build has been triggered at CircleCI. At the top of the list you can see a successfull build 'master #21'. Because tests were run successfully now we want to move this changes to the ```dev``` branch.
+![](images/001.png)
+
+Now we want to trigger a deployment, not just running tests, so we have to change to the ```dev``` branch.
+
+```
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
+cvicensa-mbp:rhmap-express-template.master cvicensa$ git checkout dev
+Switched to branch 'dev'
+Your branch is up-to-date with 'origin/dev'.
+$ git merge master
+Updating 094d6c6..2e02726
+Fast-forward
+ README.md                | 52 +++++++++++++++++++++++++++++++++++++++++++++++++++-
+ circle.yml               |  3 ++-
+ lib/routes/hello.js      |  2 +-
+ lib/routes/hello.test.js |  8 ++++----
+ 4 files changed, 58 insertions(+), 7 deletions(-)
+$ git push origin dev
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/cvicens/rhmap-express-template.git
+   a2b32b2..2e02726  dev -> dev
+cvicensa-mbp:rhmap-express-template.master cvicensa$ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+```
+As you can see CircleCI is monitoring github... master and dev branches... 
+![](images/002.png)
+![](images/003.png)
 
 
 ## Overview
