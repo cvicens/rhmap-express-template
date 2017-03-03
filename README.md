@@ -1,5 +1,55 @@
 # Red Hat Mobile Cloud Application Template
-[![Circle CI](https://circleci.com/gh/evanshortiss/rhmap-express-template/tree/master.svg?style=svg)](https://circleci.com/gh/evanshortiss/rhmap-express-template/tree/master)
+[![Circle CI](https://circleci.com/gh/cvicens/rhmap-express-template/tree/master.svg?style=svg)](https://circleci.com/gh/cvicens/rhmap-express-template/tree/master)
+
+## Update over the original
+Don't forget to create an SSH key and upload it to github.
+I have modified circleci.yml to cope with an error 'shallow clone'.
+
+I have change this:
+
+```
+     - git push $FH_GIT_URL $CIRCLE_SHA1:refs/heads/dev
+```
+
+By this:
+
+```
+     - git remote add fh $FH_GIT_URL
+     - git fetch --unshallow
+     - git push fh refs/heads/dev
+```
+
+### What to do to trigger a deployment from a change in 'master'
+Check if ```dev``` branch already exists and if you are at ```master``` branch.
+
+```
+$ git branch
+  dev
+* master ---> You're at this branch!!!
+
+```
+
+Then make your changes and push those changes to 'master'. Here we check status and confirm changes made at ./lib/routes/hello.js and hello.test.js.
+
+```
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   README.md
+	modified:   lib/routes/hello.js
+	modified:   lib/routes/hello.test.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+Let's commit and push those changes.
+
+```
+```
+
 
 ## Overview
 This is a template express application that utilises the RHMAP (Red Hat Mobile
