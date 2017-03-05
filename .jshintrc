@@ -38,8 +38,5 @@
   "maxparams": 6,
   "maxdepth": 5,
   "maxstatements": 20,
-  "maxcomplexity": 10,
-  "node": true,
-  "esversion": 6,
-  "esnext": true
+  "maxcomplexity": 10
 }
