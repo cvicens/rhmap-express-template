@@ -28,6 +28,9 @@ require('lib/routes/error-example')(app);
 // Expose our counters
 app.use('/stats', counters.router);
 
+// Dummy data
+require('lib/dummy/users')();
+
 // Important that this is last!
 app.use(mbaasExpress.errorHandler());
 
