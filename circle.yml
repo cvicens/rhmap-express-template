@@ -8,7 +8,7 @@ deployment:
      - git push fh refs/heads/dev
      - fhc target $FH_DOMAIN
      - fhc login $FH_USER $FH_PASS
-     - fhc app stage --app=$FH_CLOUD_APP_ID --env=demos-dev --runtime=node010 --clean=true --gitRef.type=branch --gitRef.hash=HEAD --gitRef.value=dev
+     - fhc app stage --app=$FH_CLOUD_APP_ID --env=demos-dev --runtime=node4 --clean=true --gitRef.type=branch --gitRef.hash=HEAD --gitRef.value=dev
  test:
    branch: test
    commands:
@@ -18,4 +18,4 @@ deployment:
      - git push fh refs/heads/test
      - fhc target $FH_DOMAIN
      - fhc login $FH_USER_TEST $FH_PASS_TEST
-     - fhc app stage --app=$FH_CLOUD_APP_ID --env=demos-test --runtime=node010 --clean=true --gitRef.type=branch --gitRef.hash=HEAD --gitRef.value=test
+     - fhc app stage --app=$FH_CLOUD_APP_ID --env=demos-test --runtime=node4 --clean=true --gitRef.type=branch --gitRef.hash=HEAD --gitRef.value=test
