@@ -2,7 +2,7 @@ deployment:
  development:
    branch: dev
    commands:
-     - npm i -g fh-fhc@2.4.0-206
+     - npm i -g fh-fhc@2.16.3-493
      - git remote add fh $FH_GIT_URL
      - git fetch --unshallow
      - git push fh refs/heads/dev
@@ -12,7 +12,7 @@ deployment:
  test:
    branch: test
    commands:
-     - npm i -g fh-fhc@2.4.0-206
+     - npm i -g fh-fhc@2.16.3-493
      - git remote add fh $FH_GIT_URL
      - git fetch --unshallow
      - git push fh refs/heads/test
